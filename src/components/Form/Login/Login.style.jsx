@@ -11,6 +11,7 @@ export const Form = styled.form`
   border-radius: 0.625rem;
   background: #FFF;
   box-shadow: 10px 10px 10px 0px rgba(82, 129, 220, 0.25);
+  min-width: 320px;
 `;
 
 export const Header = styled.div`
@@ -29,6 +30,7 @@ export const InputGroup = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
+  width: 100%;
 `;
 
 export const Button = styled.button`
