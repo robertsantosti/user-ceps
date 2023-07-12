@@ -8,4 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+  }
 `
