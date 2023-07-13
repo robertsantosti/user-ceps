@@ -5,30 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/auth/auth.context';
 import { InputComponent } from '../Input/Input.component';
 import * as Styled from './Login.style';
+import { UserService } from '../../../services/User/User.service';
 
 export const FormLoginComponent = () => {
-  const users = [
-    {
-      id: 1,
-      email: 'admin@usercep.com',
-      password: '12345678'
-    },
-    {
-      id: 2,
-      email: 'usuario@usercep.com',
-      password: '98765432'
-    },
-    {
-      id: 3,
-      email: 'usercep@gmail.com',
-      password: '12457896'
-    },
-    {
-      id: 4,
-      email: 'robertsantosti@outlook.com',
-      password: '12345678'
-    },
-  ]
 
   const {
     register,
@@ -41,10 +20,18 @@ export const FormLoginComponent = () => {
 
   const { setAuth } = useContext(AuthContext);
 
+  const createUser = () => {
+    UserService.Create({
+        email: 'batata@frita.com',
+        password: 'doMcDonalds'
+    })
+  }
+
   const submitForm = (data) => {
     const { email, password } = data;
 
-    const user = users.find(u => u.email === email);
+    // const user = users.find(u => u.email === email);
+    const user = UserService.ShowByEmail(email);
 
     if(!user) {
       alert('Usuário não cadastrado');
@@ -96,7 +83,7 @@ export const FormLoginComponent = () => {
 
       <Styled.Action>
         <Styled.EsqueciSenha>Esqueci minha senha</Styled.EsqueciSenha>
-        <Styled.Button $outlined={true} type='button'>Criar conta</Styled.Button>
+        <Styled.Button $outlined={true} type='button' onClick={createUser}>Criar conta</Styled.Button>
       </Styled.Action>
     </Styled.Form>
   )
