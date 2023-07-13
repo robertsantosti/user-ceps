@@ -40,14 +40,17 @@ export const Button = styled.button`
   align-items: flex-start;
   align-self: stretch;
   border-radius: 0.3125rem;
-  background: ${({ $outlined }) => { return $outlined ? 'transparent' : 'rgba(82, 129, 220, 0.50)'}};
-  border:  ${({ $outlined }) => { return !$outlined ? 0 : '1px solid rgba(82, 129, 220, 0.50)'}};
+  background: ${({ $outlined }) => { return $outlined ? 'transparent' : 'rgba(82, 129, 220, 1)'}};
+  border:  ${({ $outlined }) => { return !$outlined ? 0 : '1px solid rgba(82, 129, 220, 1)'}};
 
-  color: ${({ $outlined }) => { return !$outlined ? '#EFEFEF' : 'rgba(82, 129, 220, 0.50)'}};
+  color: ${({ $outlined }) => { return !$outlined ? '#EFEFEF' : 'rgba(82, 129, 220, 1)'}};
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+
+  opacity: ${({$active}) => { return $active ? 1 : .5 }};
+  cursor: pointer;
 
   &:disabled {
     cursor: not-allowed;
