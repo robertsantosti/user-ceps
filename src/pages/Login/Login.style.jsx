@@ -6,5 +6,5 @@ export const Login = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #5281DC 0%, rgba(0, 87, 255, 0.00) 100%);
+  background: linear-gradient(180deg, #5281DC 0%, #060F21 100%);
 `

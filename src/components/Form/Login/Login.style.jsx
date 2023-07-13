@@ -21,6 +21,7 @@ export const Header = styled.div`
   align-items: flex-start;
   gap: 0.5rem;
   align-self: stretch;
+  min-width: 380px;
 `;
 
 export const InputGroup = styled.div`
