@@ -1,8 +1,10 @@
+import { FormLoginComponent } from "../../components/Form/Login/Login.component"
+import * as Styled from './Login.style';
 
 export const LoginPage = () => {
   return(
-    <>
-      <p>LoginPage is Render</p>
-    </>
+    <Styled.Login>
+      <FormLoginComponent/>
+    </Styled.Login>
   )
 }
