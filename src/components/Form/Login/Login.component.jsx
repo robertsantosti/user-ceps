@@ -20,18 +20,20 @@ export const FormLoginComponent = () => {
 
   const { setAuth } = useContext(AuthContext);
 
-  const createUser = () => {
-    UserService.Create({
+  const createUser = async () => {
+    await UserService.Create({
         email: 'batata@frita.com',
         password: 'doMcDonalds'
     })
+    
+    await UserService.GetCEP('34585040');
   }
 
-  const submitForm = (data) => {
+  const submitForm = async (data) => {
     const { email, password } = data;
 
     // const user = users.find(u => u.email === email);
-    const user = UserService.ShowByEmail(email);
+    const user = await UserService.ShowByEmail(email);
 
     if(!user) {
       alert('Usuário não cadastrado');
@@ -43,6 +45,7 @@ export const FormLoginComponent = () => {
       ? redirectToHome(user)
       : alert('Ops! Usuário e/ou Senha Invalidos.');
   }
+
 
   const redirectToHome = (user) => {
     setAuth({ user, isLogged: true });
