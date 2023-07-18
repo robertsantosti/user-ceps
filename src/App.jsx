@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { HomePage } from './pages/Home/Home.page';
 import { LoginPage } from './pages/Login/Login.page';
+import { Layout } from './layout/layout';
 // import { LocalStorageService } from './services/User/LocalStorage.service';
 
 // if(!LocalStorageService.get('users')) {
@@ -33,8 +34,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/' element={<Layout/>}>
+          <Route path='/' element={<HomePage/>}/>
+        </Route>
         <Route path='*' element={<><p>Pagina não existe</p></>}/>
       </Routes>
     </Router>
