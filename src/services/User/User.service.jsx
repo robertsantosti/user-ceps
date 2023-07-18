@@ -18,27 +18,26 @@ const GetCEP = async (cep) => {
 }
 
 //Method POST
-const Create = async (data) => {
-  // const users = Get();
-
-  // data = {
-  //   id: users.length + 1,
-  //   ...data,
-  // }
-
-  // LocalStorageService.set('users', [...users, data]);
-
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    body: {
-      email: data.email,
-      password: data.password,
+const Create = async (newData) => {
+  await fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      email: newData.email,
+      password: newData.password,
+    }),
+    headers: {
+      "Content-type": "application/json",
     },
-  });
-  // const res = await response.json();
-  // console.log(res && `Usuário ${res.email} criado com sucesso`);
-}
-
+  })
+    .then(async (data) => {
+     const res = await data.json();
+      console.log(res);
+      console.log("cadastrado com sucesso");
+    })
+    .catch(() => {
+      console.log("Erro ao cadastrar");
+    });
+};
 //Method GET
 const Show = async (id) => {
   // return Get().find(user => user.id === id);
